@@ -1,0 +1,10 @@
+.container-main {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    border-width: 1px solid;
+}
