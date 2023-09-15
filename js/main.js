@@ -1,8 +1,8 @@
 function ConnectLobbyRedirect() {
-    location.href = "/pages/connect-lobby/connect-lobby.html"
+    location.href = "/connect-lobby"
 }
 function CreateLobbyRedirect() {
-    location.href = "/pages/create-lobby/create-lobby.html"
+    location.href = "/create-lobby"
 }
 
 window.CreateLobbyRedirect = CreateLobbyRedirect

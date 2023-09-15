@@ -13,7 +13,13 @@ async function CreateSession() {
     }
 
     const response = await request(url, payload);
-    console.log(await response.json())
+    let data = await response.json()
+    console.log(data, data["error"])
+    if (data["is"] === true) {
+        location.href = "/main"
+    } else {
+        console.log("incorrect login or password")
+    }
 }
 
 window.CreateSession = CreateSession
