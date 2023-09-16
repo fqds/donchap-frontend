@@ -14,7 +14,6 @@ async function CreateSession() {
 
     const response = await request(url, payload);
     let data = await response.json()
-    console.log(data, data["error"])
     if (data["is"] === true) {
         location.href = "/main"
     } else {
