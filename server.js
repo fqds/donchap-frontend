@@ -14,6 +14,7 @@ const app = express()
 
 app.use("/css", express.static(path.resolve(__dirname, "css")))
 app.use("/js", express.static(path.resolve(__dirname, "js")))
+app.use("/images", express.static(path.resolve(__dirname, "images")))
 
 app.get("/login", (_, res) => {
     res.sendFile(path.resolve(__dirname, "pages", "login.html"))

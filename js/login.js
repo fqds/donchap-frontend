@@ -22,3 +22,4 @@ async function CreateSession() {
 }
 
 window.CreateSession = CreateSession
+

@@ -1,30 +1,70 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title">Sign in???</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://kit.fontawesome.com/5e2d75d761.js" crossorigin="anonymous"></script>
     <script type="module" src="/js/login.js"></script>
 </head>
-
 <body>
-    <div class="container-main">
-        <div>
-            <div>login</div>
-            <input id="login">
+    <section>
+        <div class="login-section">
+            <div class="form-box login">
+                <div class="form-value">
+                    <form action="">
+                        <h2>Login</h2>
+                        <div class="inputbox">
+                            <i class="fa-solid fa-user"></i>
+                            <input id="login" type="login" required>
+                            <label for="">User Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-solid fa-lock"></i>
+                            <input id="password" type="password" required>
+                            <label for="">Password</label>
+                        </div>
+                        <button onclick="CreateSession()">Log in</button>
+                        <div class="link-btn register">
+                            <p>Don't have an account <a onclick="document.querySelector('.login-section').classList.add('active')">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="form-box register">
+                <div class="form-value">
+                    <form action="">\
+                        <h2>Register</h2>
+                        <div class="inputbox">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="login" required>
+                            <label for="">User Name</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" required>
+                            <label for="">Password</label>
+                        </div>
+                        <div class="inputbox">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" required>
+                            <label for="">Confirm password</label>
+                        </div>
+                        <button>Register</button>
+                        <div class="link-btn login">
+                            <p>Have an account <a onclick="document.querySelector('.login-section').classList.remove('active')">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div>
-            <div>password</div>
-            <input id="password">
-        </div>
-
-        <button class="button" onclick="CreateSession()">
-            Login
-        </button>
-    </div>
+    </section>
+    
 </body>
-
 </html>
