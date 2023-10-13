@@ -1,12 +1,12 @@
 import { request } from "/js/request.js"
 import { BACKEND_URL } from "/js/const.js"
 
+const lobby_name = window.location.href.split("/")[window.location.href.split("/").length - 1].replace("%20", " ")
+
 async function RenderLobby() {
 
     const url = BACKEND_URL + "/api/private/lobby/player/connect"
 
-    let lobby_name = window.location.href.split("/")
-    lobby_name = lobby_name[lobby_name.length - 1].replace("%20", " ")
     let payload = {
         lobby_name: lobby_name
     }
@@ -34,7 +34,7 @@ async function RenderLobby() {
         parameter_names.appendChild(param)
     }
 
-    let parameter_values = data["player"]["parameters"]
+    let parameter_values = data["player_parameters"]
     for (let i in parameter_values) {
         let parameter_id = parameter_values[i]["parameter_id"]
         let value = parameter_values[i]["value"]
@@ -42,7 +42,26 @@ async function RenderLobby() {
         let input = document.createElement("input")
         input.value = value
         param.appendChild(input)
+        input.onchange = updateParameter(parameter_values[i]["parameter_id"], input)
     }
+}
+
+async function updateParameter(parameter_id, self) {
+    const url = BACKEND_URL + "/api/private/lobby/player/update"
+
+    let payload = {
+        lobby_name: lobby_name,
+        parameter_id: parameter_id,
+        parameter_value: self.value
+    }
+
+    const response = await request(url, payload);
+    let data = await response.json()
+    if (data["error"] !== undefined) {
+        console.log(data["error"])
+    } else {
+    }
+    console.log(data)
 }
 
 RenderLobby()
